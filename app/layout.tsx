@@ -36,7 +36,7 @@ const mono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://yogifly.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://yogeshingle1502.me";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

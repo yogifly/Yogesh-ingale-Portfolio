@@ -201,16 +201,7 @@ function ProjectCard({
                       <Github className="size-4" />
                       GitHub
                     </Link>
-                    <Link
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener"
-                      data-cursor="hover"
-                      className="inline-flex items-center gap-2 rounded-full border border-[#1c2547] px-5 py-2.5 text-sm text-white transition-colors hover:border-[#0EA5E9]"
-                    >
-                      <ExternalLink className="size-4" />
-                      Live demo
-                    </Link>
+                    
                   </div>
                 </div>
               </div>

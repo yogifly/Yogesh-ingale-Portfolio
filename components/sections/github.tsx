@@ -58,10 +58,9 @@ export function Github() {
 
               {/* Stats row */}
               <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
-                <Stat label="Followers" value={githubStats.followers} icon={<Users className="size-3.5" />} />
-                <Stat label="Following" value={githubStats.following} icon={<Users className="size-3.5" />} />
                 <Stat label="Public repos" value={githubStats.publicRepos} icon={<BookOpen className="size-3.5" />} />
-                <Stat label="Stars earned" value={githubStats.stars} icon={<Star className="size-3.5" />} />
+                <Stat label="Total forks" value={githubStats.totalForks} icon={<GitFork className="size-3.5" />} />
+                <Stat label="Total stars" value={githubStats.totalStars} icon={<Star className="size-3.5" />} />
               </div>
             </div>
           </div>
@@ -103,70 +102,6 @@ export function Github() {
             </div>
           </div>
 
-          {/* Contribution graph */}
-          <div className="md:col-span-12">
-            <div className="rounded-2xl border border-[#1c2547] bg-[#0a0f24]/40 p-6 md:p-8">
-              <div className="mb-6 flex items-center justify-between">
-                <div>
-                  <p className="text-mono-sm text-[#38BDF8]">
-                    / {githubStats.contributions} contributions this year
-                  </p>
-                  <h3 className="mt-1 font-display text-xl text-white md:text-2xl">
-                    Contribution graph
-                  </h3>
-                </div>
-                <div className="flex items-center gap-2 font-mono text-[10px] text-[#475569]">
-                  Less
-                  <span className="flex gap-1">
-                    {[0, 1, 2, 3, 4].map((n) => (
-                      <span
-                        key={n}
-                        className="size-3 rounded-sm"
-                        style={{
-                          background:
-                            n === 0
-                              ? "#0a0f24"
-                              : `rgba(14, 165, 233, ${0.2 + n * 0.2})`,
-                        }}
-                      />
-                    ))}
-                  </span>
-                  More
-                </div>
-              </div>
-
-              <div className="flex gap-1 overflow-x-auto pb-2">
-                {Array.from({ length: 26 }).map((_, col) => (
-                  <div key={col} className="flex flex-col gap-1">
-                    {Array.from({ length: 7 }).map((_, row) => {
-                      const idx = col * 7 + row;
-                      const intensity = cells[idx] ?? 0;
-                      return (
-                        <motion.span
-                          key={row}
-                          initial={{ opacity: 0, scale: 0.5 }}
-                          animate={inView ? { opacity: 1, scale: 1 } : {}}
-                          transition={{
-                            duration: 0.3,
-                            delay: 0.02 * idx,
-                          }}
-                          className="size-3 rounded-sm"
-                          style={{
-                            background:
-                              intensity === 0
-                                ? "#0a0f24"
-                                : `rgba(14, 165, 233, ${0.2 + intensity * 0.2})`,
-                          }}
-                          title={`${intensity} contributions`}
-                        />
-                      );
-                    })}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
           {/* Recent repos */}
           <div className="md:col-span-12">
             <p className="text-mono-sm text-[#38BDF8]">/ Recent repos</p>
@@ -202,14 +137,6 @@ export function Github() {
                           style={{ background: "#38BDF8" }}
                         />
                         {r.lang}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Star className="size-3" />
-                        {r.stars}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <GitFork className="size-3" />
-                        {(r.stars / 8).toFixed(0)}
                       </span>
                     </div>
                   </Link>

@@ -155,7 +155,7 @@ export function Hero() {
               </li>
               <li className="flex items-baseline justify-between gap-4">
                 <span className="text-[#475569]">focus</span>
-                <span className="text-white">rag · evals · agents</span>
+                <span className="text-white">AI/ML · Backend · RAG · Full-Stack</span>
               </li>
               <li className="flex items-baseline justify-between gap-4">
                 <span className="text-[#475569]">status</span>
